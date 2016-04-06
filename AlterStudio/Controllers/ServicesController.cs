@@ -15,23 +15,9 @@ namespace AlterStudio.Controllers
         private readonly RemoteStudioEntities _db = new RemoteStudioEntities();
 
         public ActionResult Index()
-        {
+        { 
             return View(_db.Services.ToList());
         }
-
-        //public ActionResult Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-        //    }
-        //    Services services = _db.Services.Find(id);
-        //    if (services == null)
-        //    {
-        //        return HttpNotFound();
-        //    }
-        //    return View(services);
-        //}
 
         public ActionResult Create()
         {
