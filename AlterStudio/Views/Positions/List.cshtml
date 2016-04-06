@@ -41,10 +41,21 @@
                     @Html.DisplayFor(modelItem => item.Note)
                 </td>
                 <td>
-                    @Html.ActionLink("Редактировать", "Edit", new { id = item.PositionId }, new { @class = "btn-sm btn-warning" })
-
-                    @Html.ActionLink("Удалить", "Delete", new { id = item.PositionId }, new { @class = "btn-sm btn-danger" })
-
+                    @Html.ActionLink("Редактировать", "Edit", new
+                    {
+                        id = item.PositionId
+                    }, new
+                    {
+                        @class = "btn-sm btn-warning"
+                    })
+                    
+                    @Html.ActionLink("Удалить", "Delete", new
+                    {
+                        id = item.PositionId
+                    }, new
+                    {
+                        @class = "btn-sm btn-danger"
+                    })
                 </td>
             </tr>
         }
