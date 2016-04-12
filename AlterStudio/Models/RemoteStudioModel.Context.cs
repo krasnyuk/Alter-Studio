@@ -1,6 +1,6 @@
-﻿    using System;
-    using System.Data.Entity;
-    using System.Data.Entity.Infrastructure;
+using System;
+using System.Data.Entity;
+using System.Data.Entity.Infrastructure;
 
 namespace AlterStudio.Models
 {
@@ -10,12 +10,12 @@ namespace AlterStudio.Models
             : base("name=RemoteStudioEntities")
         {
         }
-    
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
         }
-    
+
         public virtual DbSet<Cities> Cities { get; set; }
         public virtual DbSet<Clients> Clients { get; set; }
         public virtual DbSet<Curators> Curators { get; set; }

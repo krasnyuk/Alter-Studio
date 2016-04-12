@@ -10,6 +10,7 @@ using AlterStudio.Models;
 
 namespace AlterStudio.Controllers
 {
+    [Authorize]
     public class ServicesController : Controller
     {
         private readonly RemoteStudioEntities _db = new RemoteStudioEntities();

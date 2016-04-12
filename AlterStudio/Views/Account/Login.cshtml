@@ -11,7 +11,10 @@
     </div>
     <div class="panel-body">
         <p style="text-align: center" class="lead">Пожалуйста, войдите в систему, чтобы получить доступ:</p>
-       @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+       @using (Html.BeginForm("Login", "Account", new {
+           ReturnUrl = ViewBag.ReturnUrl
+       }, FormMethod.Post, new {
+           @class = "form-horizontal", role = "form" }))
        {
             @Html.ValidationSummary()
             <div class="form-group">

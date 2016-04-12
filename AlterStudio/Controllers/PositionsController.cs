@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using AlterStudio.Models;
 namespace AlterStudio.Controllers
 {
+    [Authorize]
     public class PositionsController : Controller
     {
         private RemoteStudioEntities _db = new RemoteStudioEntities();
