@@ -7,6 +7,7 @@ using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using AlterStudio.Models;
+using Rotativa;
 
 namespace AlterStudio.Controllers
 {
@@ -33,7 +34,7 @@ namespace AlterStudio.Controllers
             {
                 _db.Services.Add(services);
                 _db.SaveChanges();
-                TempData["Success"] = @"Новая услуга  '" + services.Title + "' была успешно добавлена!";
+                TempData["Success"] = @"Новая услуга  '" + services.Title.ToUpper() + "' была успешно добавлена!";
                 return RedirectToAction("Index");
             }
 
@@ -108,6 +109,14 @@ namespace AlterStudio.Controllers
                 _db.Dispose();
             }
             base.Dispose(disposing);
+        }
+        [HttpPost]
+        public ActionResult Print(string pattern = "фото")
+        {
+            return 
+                new ViewAsPdf("ListPdf", _db.Services
+                .ToList()
+                .FindAll(x=>x.Title.Contains(pattern.ToLower())));
         }
     }
 }

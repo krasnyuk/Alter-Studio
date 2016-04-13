@@ -184,3 +184,4 @@ D:\Универ\Курсовой БД\AlterStudio\AlterStudio\bin\ru\Microsoft.O
 D:\Универ\Курсовой БД\AlterStudio\AlterStudio\bin\ru\Microsoft.Owin.Security.Google.resources.dll
 D:\Универ\Курсовой БД\AlterStudio\AlterStudio\bin\ru\Microsoft.Owin.Security.Twitter.resources.dll
 D:\Универ\Курсовой БД\AlterStudio\AlterStudio\bin\ru\Microsoft.Owin.Security.MicrosoftAccount.resources.dll
+D:\Универ\Курсовой БД\AlterStudio\AlterStudio\bin\Rotativa.dll
