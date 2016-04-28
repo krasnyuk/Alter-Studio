@@ -37,7 +37,6 @@ namespace AlterStudio.Controllers
                 TempData["Success"] = @"Новая услуга  '" + services.Title.ToUpper() + "' была успешно добавлена!";
                 return RedirectToAction("Index");
             }
-
             return View(services);
         }
 

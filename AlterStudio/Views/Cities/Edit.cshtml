@@ -1,4 +1,4 @@
-﻿@model AlterStudio.Models.Positions
+﻿@model AlterStudio.Models.Cities
 
 @{
     ViewBag.Title = "Редактирование";
@@ -6,7 +6,7 @@
 
 <div class="panel panel-warning">
     <div class="panel-heading ">
-        <h3> <b>Редактирование должности </b></h3>
+        <h3> <b>Редактирование городов </b></h3>
     </div>
     <div class="panel-body">
         @using (Html.BeginForm())
@@ -15,7 +15,7 @@
 
             <div class="form-horizontal">
                 @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                @Html.HiddenFor(model => model.PositionId)
+                @Html.HiddenFor(model => model.CityId)
 
                 <div class="form-group">
                     @Html.LabelFor(model => model.Title, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -26,18 +26,10 @@
                 </div>
 
                 <div class="form-group">
-                    @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    @Html.LabelFor(model => model.Country, htmlAttributes: new { @class = "control-label col-md-2" })
                     <div class="col-md-10">
-                        @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-
-                <div class="form-group">
-                    @Html.LabelFor(model => model.Note, htmlAttributes: new { @class = "control-label col-md-2" })
-                    <div class="col-md-10">
-                        @Html.EditorFor(model => model.Note, new { htmlAttributes = new { @class = "form-control" } })
-                        @Html.ValidationMessageFor(model => model.Note, "", new { @class = "text-danger" })
+                        @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
                     </div>
                 </div>
 
@@ -51,7 +43,7 @@
     </div>
     <div class="panel-footer">
         <div>
-            @Html.ActionLink("Назад", "Index", null, new { @class = "btn btn-default" })
+            @Html.ActionLink("Назад", "List", null, new { @class = "btn btn-default" })
         </div>
     </div>
 
