@@ -51,7 +51,7 @@ namespace AlterStudio.Controllers
         }
 
         //
-        // GET: /Manage/Index
+        // GET: /Manage/Main
         public async Task<ActionResult> Index(ManageMessageId? message)
         {
             ViewBag.StatusMessage =

@@ -1,0 +1,114 @@
+﻿
+@{
+    List<string> dropDown = new List<string>() { "Фото", "Видео" };
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Генерация отчётов</title>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button type="button" class="btn btn-info btn-md spoiler-trigger" data-toggle="collapse">
+                        Отчёт по услугам
+                    </button>
+                </div>
+                <div class="panel-collapse collapse out">
+                    <div class="panel-body">
+                        <div>
+                            @using (Html.BeginForm("PrintServices","Reports"))
+                            {
+                                <input type="submit" class="btn btn-warning" value="Создать отчёт" />
+                                @Html.DropDownList("pattern", new SelectList(dropDown), new { @class = "custom-dropdown" })
+                            }
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button type="button" class="btn btn-info btn-md spoiler-trigger" data-toggle="collapse">
+                        Отчёт по должностям
+                    </button>
+                </div>
+                <div class="panel-collapse collapse out">
+                    <div class="panel-body">
+                        <div>
+                            @Html.ActionLink("Создать отчёт", "PrintPositions", null, new { @class = "btn btn-warning"})
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button type="button" class="btn btn-default btn-xs spoiler-trigger" data-toggle="collapse">Toggle Button</button>
+                </div>
+                <div class="panel-collapse collapse out">
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, quos, accusamus. Quidem, molestiae. Ipsam consequatur impedit voluptatem, quod qui perferendis fugiat. Eos adipisci dolorem doloremque quos debitis excepturi ex itaque!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button type="button" class="btn btn-default btn-xs spoiler-trigger" data-toggle="collapse">Toggle Button</button>
+                </div>
+                <div class="panel-collapse collapse out">
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, quos, accusamus. Quidem, molestiae. Ipsam consequatur impedit voluptatem, quod qui perferendis fugiat. Eos adipisci dolorem doloremque quos debitis excepturi ex itaque!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button type="button" class="btn btn-default btn-xs spoiler-trigger" data-toggle="collapse">Toggle Button</button>
+                </div>
+                <div class="panel-collapse collapse out">
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, quos, accusamus. Quidem, molestiae. Ipsam consequatur impedit voluptatem, quod qui perferendis fugiat. Eos adipisci dolorem doloremque quos debitis excepturi ex itaque!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <button type="button" class="btn btn-default btn-xs spoiler-trigger" data-toggle="collapse">Toggle Button</button>
+                </div>
+                <div class="panel-collapse collapse out">
+                    <div class="panel-body">
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sint, quos, accusamus. Quidem, molestiae. Ipsam consequatur impedit voluptatem, quod qui perferendis fugiat. Eos adipisci dolorem doloremque quos debitis excepturi ex itaque!</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $(".spoiler-trigger").click(function () {
+        $(this).parent().next().collapse('toggle');
+    });
+</script>
+  
+</body>
+</html>

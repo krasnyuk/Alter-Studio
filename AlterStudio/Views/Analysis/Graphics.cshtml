@@ -1,0 +1,78 @@
+﻿
+@{
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
+    <title>Графики</title>
+</head>
+<body>
+    <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
+<script>
+    $(function () {
+        $('#container').highcharts({
+            chart: {
+                type: 'column'
+            },
+            title: {
+                text: 'Стоимость услуг студии, Май 2016'
+            },
+           
+            xAxis: {
+                type: 'category',
+                labels: {
+                    rotation: -45,
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Стоимость'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            tooltip: {
+                pointFormat: 'Стоимость на май 2016: <b>{point.y:.1f} грн</b>'
+            },
+            series: [{
+                name: 'Цены',
+                data: [
+                    ['Свадебная фотосъёмка "Полный день', 4000],
+                    ['Выпускная фотокнига 1', 280],
+                    ['Видеосъёмка "Полный день"', 5500],
+                    ['Видеосъёмка "Полный день - максимум"', 8000]
+                ],
+                dataLabels: {
+                    enabled: true,
+                    rotation: -90,
+                    color: '#FFFFFF',
+                    align: 'right',
+                    format: '{point.y:.1f}', // one decimal
+                    y: 10, // 10 pixels down from the top
+                    style: {
+                        fontSize: '13px',
+                        fontFamily: 'Verdana, sans-serif'
+                    }
+                }
+            }]
+        });
+    });
+
+    function getData() {
+        
+    }
+</script>
+</body>
+</html>

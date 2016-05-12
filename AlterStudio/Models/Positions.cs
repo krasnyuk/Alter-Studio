@@ -10,7 +10,7 @@ namespace AlterStudio.Models
         public int PositionId { get; set; }
 
         [Required(ErrorMessage = "Название обязательно!")]
-        [Display(Name = "Название!")]
+        [Display(Name = "Название")]
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Описание обязательно!")]

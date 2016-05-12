@@ -1,0 +1,58 @@
+﻿@model IEnumerable<AlterStudio.Models.Services>
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>ListPdf</title>
+    @Styles.Render("~/Content/css")
+</head>
+<body>
+<h3>
+    Alter Studio - отчёт по услугам студии
+</h3>
+<table class="table table-hover table-bordered">
+    <thead>
+    <tr>
+        <th class="col-md-2">
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th class="col-md-4">
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th class="col-md-1">
+            @Html.DisplayNameFor(model => model.Cost)
+        </th>
+        <th class="col-md-3">
+            @Html.DisplayNameFor(model => model.Note)
+        </th>
+
+    </tr>
+    </thead>
+    <tbody>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cost)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Note)
+            </td>
+
+        </tr>
+    }
+    </tbody>
+</table>
+</body>
+</html>
