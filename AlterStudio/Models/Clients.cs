@@ -1,5 +1,7 @@
 
 
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace AlterStudio.Models
 {
     using System;
@@ -20,7 +22,7 @@ namespace AlterStudio.Models
         public string Telephone { get; set; }
         public string Note { get; set; }
 
-
+        [ForeignKey("Cities")]
         public int CityId { get; set; }
     
         public virtual Cities Cities { get; set; }

@@ -188,6 +188,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AnalysisController.cs" />
     <Compile Include="Controllers\CitiesController.cs" />
+    <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\PositionsController.cs" />
@@ -203,6 +204,7 @@
     <Compile Include="Models\Clients.cs">
       <DependentUpon>RemoteStudioModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\ClientViewModel.cs" />
     <Compile Include="Models\Curators.cs">
       <DependentUpon>RemoteStudioModel.tt</DependentUpon>
     </Compile>
@@ -371,6 +373,10 @@
     <Content Include="Views\Reports\ListPdf.cshtml" />
     <Content Include="Views\Reports\PositionsPdf.cshtml" />
     <Content Include="Views\Analysis\Graphics.cshtml" />
+    <Content Include="Views\Client\Create.cshtml" />
+    <Content Include="Views\Client\Edit.cshtml" />
+    <Content Include="Views\Client\List.cshtml" />
+    <Content Include="Views\Client\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>
