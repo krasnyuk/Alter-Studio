@@ -1,10 +1,4 @@
-﻿
-@{
-
-}
-
-<!DOCTYPE html>
-
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta name="viewport" content="width=device-width"/>
@@ -16,6 +10,7 @@
     <div id="container" style="min-width: 300px; height: 400px; margin: 0 auto"></div>
 <script>
     $(function () {
+        getData()
         $('#container').highcharts({
             chart: {
                 type: 'column'
@@ -71,7 +66,19 @@
     });
 
     function getData() {
-        
+        var a = {};
+        $.ajax({
+            url: '@Url.Action("GetServicesCostsJson")',
+            dataType: 'json',
+            success: function (data){
+                alert(data);
+            }
+                
+            //success: function (data){
+            //    a = JSON.parse(data);
+            //    console.log(a);
+            //}
+        });
     }
 </script>
 </body>
