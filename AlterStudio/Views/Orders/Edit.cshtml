@@ -1,0 +1,63 @@
+﻿@model AlterStudio.Models.OrderViewModel
+
+@{
+    ViewBag.Title = "Редактирование";
+}
+
+<div class="panel panel-warning">
+    <div class="panel-heading ">
+        <h3> <b>Редактирование заказа № @Model.Order.OrderId</b></h3>
+    </div>
+    <div class="panel-body">
+        @using (Html.BeginForm())
+        {
+            <div class="form-horizontal ">
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.Order.OrderId)
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Order.ShootingDate, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Order.ShootingDate, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Order.ShootingDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Order.Description, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Order.Description, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Order.Description, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.LabelFor(model => model.Order.PerformTo, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.Order.PerformTo, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.Order.PerformTo, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+                <HR>
+                <div class="form-group">
+                    @Html.Label("Клиент", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("Client", Model.Clients, new { @class = "selectpicker form-control", @style = "custom-dropdown" })
+                        @*@Html.ActionLink("+", "List", "Client", new { @class = "btn btn-sm btn-success" })*@
+                    </div>
+                </div>
+                <div class="form-group">
+                    @Html.Label("Куратор", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("Curator", Model.Curators, new { @class = "selectpicker form-control", @style = "custom-dropdown" })
+                        @*@Html.ActionLink("+", actionName: "List", controllerName: "Curator", routeValues: null, htmlAttributes: new { @class = "btn btn-sm btn-success" })*@
+                    </div>
+                </div>
+            </div>
+        <div class="panel-footer">
+            <div>
+                <input type="submit" value="Сохранить" class="btn btn-info" />
+                @Html.ActionLink("Назад", "List", null, new { @class = "btn btn-default" })
+            </div>
+        </div>
+        }
+    </div>
+</div>

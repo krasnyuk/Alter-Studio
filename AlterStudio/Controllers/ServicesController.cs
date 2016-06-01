@@ -14,7 +14,7 @@ namespace AlterStudio.Controllers
     [Authorize]
     public class ServicesController : Controller
     {
-        private readonly RemoteStudioEntities _db = new RemoteStudioEntities();
+        private readonly LocalStudioEntities _db = new LocalStudioEntities();
 
         public ActionResult Index()
         { 

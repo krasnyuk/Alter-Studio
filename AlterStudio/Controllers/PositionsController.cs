@@ -10,7 +10,7 @@ namespace AlterStudio.Controllers
     [Authorize]
     public class PositionsController : Controller
     {
-        private readonly RemoteStudioEntities _db = new RemoteStudioEntities();
+        private readonly LocalStudioEntities _db = new LocalStudioEntities();
 
         public ActionResult List()
         {

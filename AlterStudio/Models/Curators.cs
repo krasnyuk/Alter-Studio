@@ -1,4 +1,3 @@
-
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -7,31 +6,36 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace AlterStudio.Models
 {
 
-    
+
     public class Curators
     {
+
         [Required]
         public int CuratorId { get; set; }
-        [Display(Name = "Фамилия")]
+
         [Required(ErrorMessage = "Фамилия обязательна")]
+        [Display(Name = "Фамилия")]
         public string LastName { get; set; }
 
-        [Display(Name = "Имя")]
         [Required(ErrorMessage = "Имя обязательна")]
+        [Display(Name = "Имя")]
         public string FirstName { get; set; }
 
-        [Display(Name = "Телефон")]
         [Required(ErrorMessage = "Телефон обязателен")]
         [DataType(DataType.PhoneNumber)]
+        [Display(Name = "Телефон")]
         public string Telephone { get; set; }
 
-        [Display(Name = "E-mail")]
         [Required(ErrorMessage = "Email обязателен")]
         [DataType(DataType.EmailAddress)]
+        [Display(Name = "E-mail")]
         public string Email { get; set; }
 
         [Display(Name = "Ставка (%)")]
-        public decimal? Rate { get; set; }
+        [Range(0,100, ErrorMessage = "Ставка должна быть в диапазоне от 0 до 100")]
+        public decimal? Rate { get; set; } //Ставка
+
+
 
         [ForeignKey("Cities")]
         public int CityId { get; set; }

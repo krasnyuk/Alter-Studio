@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
@@ -19,7 +19,7 @@ namespace AlterStudio.Models
 
         [Display(Name = "Примечание")]
         public string Note { get; set; }
-        
+
         public virtual ICollection<Employees> Employees { get; set; }
     }
 }

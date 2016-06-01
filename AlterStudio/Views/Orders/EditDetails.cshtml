@@ -1,0 +1,54 @@
+﻿@model AlterStudio.Models.OrderDetailsViewModel
+
+@using (Html.BeginForm("EditDetails", "Orders"))
+{
+
+    @Html.AntiForgeryToken()
+    <div class="panel panel-warning">
+        <div class="panel-heading">
+            <b> Редактировать детали заказа #@Model.OrderId </b>
+        </div>
+        <div class="panel-body">
+            <div class="form-horizontal ">
+                @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+                @Html.HiddenFor(model => model.OrderId)
+                @Html.HiddenFor(model=>model.OrderDetail.ServiceId)
+
+
+                <div class="form-group">
+                    @Html.LabelFor(model => model.OrderDetail.Amount, htmlAttributes: new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.EditorFor(model => model.OrderDetail.Amount, new { htmlAttributes = new { @class = "form-control" } })
+                        @Html.ValidationMessageFor(model => model.OrderDetail.Amount, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <HR>
+
+                <div class="form-group">
+                    @Html.Label("Исполнитель", new { @class = "control-label col-md-2" })
+                    <div class="col-md-10">
+                        @Html.DropDownList("Employee", Model.Employees,
+                       new { @class = "selectpicker form-control", @style = "custom-dropdown" })
+                    </div>
+                </div>
+
+                <div class="panel-footer">
+                    <div class="col-md-offset-2">
+                        <input type="submit" value="Сохранить" class="btn btn-info" />
+                        @Html.ActionLink("Назад", "Details", new { id = Model.OrderId }, new { @class = "btn btn-default" })
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
+
+
+

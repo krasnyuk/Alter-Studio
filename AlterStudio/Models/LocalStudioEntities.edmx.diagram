@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="1b7718ee7faa4083820043b53e7feb9b" Name="Diagram1">
+        <EntityTypeShape EntityType="StudioDbModel.Cities" Width="1.5" PointX="0.75" PointY="5.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudioDbModel.Clients" Width="1.5" PointX="3" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudioDbModel.Curators" Width="1.5" PointX="3" PointY="7" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudioDbModel.Employees" Width="1.5" PointX="6" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudioDbModel.OrderDetails" Width="1.5" PointX="8.25" PointY="3.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudioDbModel.Orders" Width="1.5" PointX="5.25" PointY="5.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudioDbModel.Positions" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="StudioDbModel.Services" Width="1.5" PointX="6" PointY="9.5" IsExpanded="true" />
+        <AssociationConnector Association="StudioDbModel.FK_Clients_Cities" ManuallyRouted="false" />
+        <AssociationConnector Association="StudioDbModel.FK_Curators_Cities" ManuallyRouted="false" />
+        <AssociationConnector Association="StudioDbModel.FK_Employees_Cities" ManuallyRouted="false" />
+        <AssociationConnector Association="StudioDbModel.FK_Orders_Clients" ManuallyRouted="false" />
+        <AssociationConnector Association="StudioDbModel.FK_Orders_Curators" ManuallyRouted="false" />
+        <AssociationConnector Association="StudioDbModel.FK_Employees_Positions" ManuallyRouted="false" />
+        <AssociationConnector Association="StudioDbModel.FK_OrderDetails_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="StudioDbModel.FK_OrderDetails_Orders" ManuallyRouted="false" />
+        <AssociationConnector Association="StudioDbModel.FK_OrderDetails_Services" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

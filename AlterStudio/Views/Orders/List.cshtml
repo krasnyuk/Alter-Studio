@@ -1,0 +1,69 @@
+﻿@model IEnumerable< AlterStudio.Models.Orders>
+
+@{
+    ViewBag.Title = "Заказы";
+}
+
+<h2>Список заказов</h2>
+<p>
+    @Html.ActionLink("Новый заказ", "CreateOrder", null, new { @class = "btn btn-primary"})
+</p>
+
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.OrderId)
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.ShootingDate)
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.PerformTo)
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayName("Фамилия клиента")
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayName("Фамилия куратора")
+            </th>
+            <th class="col-md-3"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center text-primary">
+                    @Html.DisplayFor(modelItem => item.OrderId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td class="text-success">
+                    @Html.DisplayFor(modelItem => item.ShootingDate)
+                </td>
+                <td class="text-success">
+                    @Html.DisplayFor(modelItem => item.PerformTo)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Clients.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Curators.LastName)
+                </td>
+                <td>
+                    @Html.ActionLink("Состав", "Details", new { id = item.OrderId }, new { @class = "btn-sm btn-info" })
+                    @Html.ActionLink("Редактировать", "Edit", new { id = item.OrderId }, new { @class = "btn-sm btn-warning" })
+                    @Html.ActionLink("Удалить", "Delete", new { id = item.OrderId }, new { @class = "btn-sm btn-danger" })
+                   
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+

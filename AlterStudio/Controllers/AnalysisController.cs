@@ -15,7 +15,7 @@ namespace AlterStudio.Controllers
     [Authorize]
     public class AnalysisController : Controller
     {
-        RemoteStudioEntities _db = new RemoteStudioEntities();
+        LocalStudioEntities _db = new LocalStudioEntities();
         public JsonResult GetServicesCostsJson()
         {
             var data = from d in _db.Services

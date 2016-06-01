@@ -196,6 +196,7 @@
     <Compile Include="Controllers\CuratorController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\PositionsController.cs" />
     <Compile Include="Controllers\ReportsController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
@@ -204,47 +205,49 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Cities.cs">
-      <DependentUpon>RemoteStudioModel.tt</DependentUpon>
+      <DependentUpon>LocalStudioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Clients.cs">
-      <DependentUpon>RemoteStudioModel.tt</DependentUpon>
+      <DependentUpon>LocalStudioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\ClientViewModel.cs" />
     <Compile Include="Models\Curators.cs">
-      <DependentUpon>RemoteStudioModel.tt</DependentUpon>
+      <DependentUpon>LocalStudioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\CuratorViewModel.cs" />
     <Compile Include="Models\Employees.cs">
-      <DependentUpon>RemoteStudioModel.tt</DependentUpon>
+      <DependentUpon>LocalStudioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\LocalStudioEntities.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalStudioEntities.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LocalStudioEntities.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalStudioEntities.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\LocalStudioEntities.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LocalStudioEntities.edmx</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderDetails.cs">
-      <DependentUpon>RemoteStudioModel.tt</DependentUpon>
+      <DependentUpon>LocalStudioEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrderDetailsViewModel.cs" />
     <Compile Include="Models\Orders.cs">
-      <DependentUpon>RemoteStudioModel.tt</DependentUpon>
+      <DependentUpon>LocalStudioEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\OrderViewModel.cs" />
     <Compile Include="Models\Positions.cs">
-      <DependentUpon>RemoteStudioModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RemoteStudioModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RemoteStudioModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RemoteStudioModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RemoteStudioModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\RemoteStudioModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RemoteStudioModel.edmx</DependentUpon>
+      <DependentUpon>LocalStudioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\Services.cs">
-      <DependentUpon>RemoteStudioModel.tt</DependentUpon>
+      <DependentUpon>LocalStudioEntities.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\StudioModel.Context.cs">
       <AutoGen>True</AutoGen>
@@ -269,21 +272,25 @@
     <Content Include="App_Data\aspnet-AlterStudio-20160329085941_log.ldf">
       <DependentUpon>aspnet-AlterStudio-20160329085941.mdf</DependentUpon>
     </Content>
+    <Content Include="App_Data\StudioDb.mdf" />
+    <Content Include="App_Data\StudioDb_log.ldf">
+      <DependentUpon>StudioDb.mdf</DependentUpon>
+    </Content>
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\RemoteStudioModel.Context.tt">
+    <Content Include="Models\LocalStudioEntities.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>RemoteStudioModel.edmx</DependentUpon>
-      <LastGenOutput>RemoteStudioModel.Context.cs</LastGenOutput>
+      <DependentUpon>LocalStudioEntities.edmx</DependentUpon>
+      <LastGenOutput>LocalStudioEntities.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\RemoteStudioModel.tt">
+    <Content Include="Models\LocalStudioEntities.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>RemoteStudioModel.edmx</DependentUpon>
-      <LastGenOutput>RemoteStudioModel.cs</LastGenOutput>
+      <DependentUpon>LocalStudioEntities.edmx</DependentUpon>
+      <LastGenOutput>LocalStudioEntities.cs</LastGenOutput>
     </Content>
     <Content Include="Models\StudioModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
@@ -305,14 +312,14 @@
     <Content Include="Models\StudioModel.edmx.diagram">
       <DependentUpon>StudioModel.edmx</DependentUpon>
     </Content>
-    <EntityDeploy Include="Models\RemoteStudioModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>RemoteStudioModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <Content Include="Models\RemoteStudioModel.edmx.diagram">
-      <DependentUpon>RemoteStudioModel.edmx</DependentUpon>
-    </Content>
     <Content Include="App_Browsers\qt.browser" />
+    <EntityDeploy Include="Models\LocalStudioEntities.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LocalStudioEntities.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\LocalStudioEntities.edmx.diagram">
+      <DependentUpon>LocalStudioEntities.edmx</DependentUpon>
+    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\adapters\standalone-framework.js" />
     <Content Include="Scripts\Highcharts-4.0.1\js\adapters\standalone-framework.src.js" />
@@ -420,6 +427,13 @@
     <Content Include="Views\Curator\List.cshtml" />
     <Content Include="Views\Curator\Edit.cshtml" />
     <Content Include="Views\Curator\Delete.cshtml" />
+    <Content Include="Views\Orders\List.cshtml" />
+    <Content Include="Views\Orders\CreateOrder.cshtml" />
+    <Content Include="Views\Orders\Edit.cshtml" />
+    <Content Include="Views\Orders\Delete.cshtml" />
+    <Content Include="Views\Orders\Details.cshtml" />
+    <Content Include="Views\Orders\AddServiceToOrder.cshtml" />
+    <Content Include="Views\Orders\EditDetails.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

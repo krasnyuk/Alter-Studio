@@ -10,7 +10,7 @@ namespace AlterStudio.Controllers
 {
     public class CitiesController : Controller
     {
-        private RemoteStudioEntities _db = new RemoteStudioEntities();
+        private LocalStudioEntities _db = new LocalStudioEntities();
 
         public ActionResult Index()
         {

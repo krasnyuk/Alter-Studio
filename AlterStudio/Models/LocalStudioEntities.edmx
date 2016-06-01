@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="Хранилище RemoteStudioModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+      <Schema Namespace="Хранилище StudioDbModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Cities">
           <Key>
             <PropertyRef Name="CityId" />
@@ -86,7 +86,7 @@
           <Property Name="ServiceId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Title" Type="nvarchar(max)" Nullable="false" />
           <Property Name="Description" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="Cost" Type="int" Nullable="false" />
+          <Property Name="Cost" Type="decimal" Precision="7" Scale="2" Nullable="false" />
           <Property Name="Note" Type="nvarchar(max)" />
         </EntityType>
         <Association Name="FK_Clients_Cities">
@@ -199,7 +199,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="Хранилище RemoteStudioModelContainer">
+        <EntityContainer Name="Хранилище StudioDbModelContainer">
           <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Clients" EntityType="Self.Clients" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Curators" EntityType="Self.Curators" Schema="dbo" store:Type="Tables" />
@@ -245,10 +245,11 @@
             <End Role="Orders" EntitySet="Orders" />
           </AssociationSet>
         </EntityContainer>
-      </Schema></edmx:StorageModels>
+      </Schema>
+    </edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="RemoteStudioModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="StudioDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="Cities">
           <Key>
             <PropertyRef Name="CityId" />
@@ -347,7 +348,7 @@
           <Property Name="ServiceId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Title" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
           <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
-          <Property Name="Cost" Type="Int32" Nullable="false" />
+          <Property Name="Cost" Type="Decimal" Precision="7" Scale="2" Nullable="false" />
           <Property Name="Note" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
           <NavigationProperty Name="OrderDetails" Relationship="Self.FK_OrderDetails_Services" FromRole="Services" ToRole="OrderDetails" />
         </EntityType>
@@ -461,7 +462,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityContainer Name="RemoteStudioEntities" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="LocalStudioEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="Cities" EntityType="Self.Cities" />
           <EntitySet Name="Clients" EntityType="Self.Clients" />
           <EntitySet Name="Curators" EntityType="Self.Curators" />
@@ -512,9 +513,9 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Хранилище RemoteStudioModelContainer" CdmEntityContainer="RemoteStudioEntities">
+        <EntityContainerMapping StorageEntityContainer="Хранилище StudioDbModelContainer" CdmEntityContainer="LocalStudioEntities">
           <EntitySetMapping Name="Cities">
-            <EntityTypeMapping TypeName="RemoteStudioModel.Cities">
+            <EntityTypeMapping TypeName="StudioDbModel.Cities">
               <MappingFragment StoreEntitySet="Cities">
                 <ScalarProperty Name="CityId" ColumnName="CityId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -523,7 +524,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Clients">
-            <EntityTypeMapping TypeName="RemoteStudioModel.Clients">
+            <EntityTypeMapping TypeName="StudioDbModel.Clients">
               <MappingFragment StoreEntitySet="Clients">
                 <ScalarProperty Name="ClientId" ColumnName="ClientId" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -535,7 +536,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Curators">
-            <EntityTypeMapping TypeName="RemoteStudioModel.Curators">
+            <EntityTypeMapping TypeName="StudioDbModel.Curators">
               <MappingFragment StoreEntitySet="Curators">
                 <ScalarProperty Name="CuratorId" ColumnName="CuratorId" />
                 <ScalarProperty Name="LastName" ColumnName="LastName" />
@@ -548,7 +549,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Employees">
-            <EntityTypeMapping TypeName="RemoteStudioModel.Employees">
+            <EntityTypeMapping TypeName="StudioDbModel.Employees">
               <MappingFragment StoreEntitySet="Employees">
                 <ScalarProperty Name="EmployeeId" ColumnName="EmployeeId" />
                 <ScalarProperty Name="FirstName" ColumnName="FirstName" />
@@ -562,7 +563,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="OrderDetails">
-            <EntityTypeMapping TypeName="RemoteStudioModel.OrderDetails">
+            <EntityTypeMapping TypeName="StudioDbModel.OrderDetails">
               <MappingFragment StoreEntitySet="OrderDetails">
                 <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
@@ -572,7 +573,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Orders">
-            <EntityTypeMapping TypeName="RemoteStudioModel.Orders">
+            <EntityTypeMapping TypeName="StudioDbModel.Orders">
               <MappingFragment StoreEntitySet="Orders">
                 <ScalarProperty Name="OrderId" ColumnName="OrderId" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
@@ -584,7 +585,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Positions">
-            <EntityTypeMapping TypeName="RemoteStudioModel.Positions">
+            <EntityTypeMapping TypeName="StudioDbModel.Positions">
               <MappingFragment StoreEntitySet="Positions">
                 <ScalarProperty Name="PositionId" ColumnName="PositionId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />
@@ -594,7 +595,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Services">
-            <EntityTypeMapping TypeName="RemoteStudioModel.Services">
+            <EntityTypeMapping TypeName="StudioDbModel.Services">
               <MappingFragment StoreEntitySet="Services">
                 <ScalarProperty Name="ServiceId" ColumnName="ServiceId" />
                 <ScalarProperty Name="Title" ColumnName="Title" />

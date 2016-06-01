@@ -10,7 +10,7 @@ namespace AlterStudio.Controllers
 {
     public class ClientController : Controller
     {
-        private readonly RemoteStudioEntities _db = new RemoteStudioEntities();
+        private readonly LocalStudioEntities _db = new LocalStudioEntities();
 
         public ActionResult List()
         {

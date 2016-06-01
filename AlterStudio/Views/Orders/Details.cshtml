@@ -1,0 +1,52 @@
+﻿@model IEnumerable<AlterStudio.Models.OrderDetails>
+
+@{
+    ViewBag.Title = "Детали заказа";
+}
+
+<h2>Список услуг заказа @ViewBag.OrderId </h2>
+<p>
+    @Html.ActionLink("Добавить услугу", "AddServiceToOrder",
+    new { orderId = @ViewBag.OrderId },
+    new { @class = "btn btn-primary" })
+</p>
+
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th class="col-md-4">
+                @Html.DisplayNameFor(model => model.Services.Title)
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(model => model.Amount)
+            </th>
+            <th class="col-md-3">
+                @Html.DisplayName("Имя исполнителя")
+            </th>
+            <th class="col-md-3"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td class="text-center text-primary">
+                    @Html.DisplayFor(modelItem => item.Services.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Amount)
+                </td>
+                <td class="text-success">
+                    @Html.DisplayFor(modelItem => item.Employees.FullName)
+                </td>
+                <td>
+                    @Html.ActionLink("Ред.", "EditDetails", new { orderId = item.OrderId, serviceId = item.ServiceId }, new { @class = "btn-sm btn-warning" })
+                    @Html.ActionLink("Удалить", "DeleteDetails", new { orderId = item.OrderId, serviceId = item.ServiceId }, new { @class = "btn-sm btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+@Html.ActionLink("Назад", "List", null, new {@class = "btn btn-info" })
+
+

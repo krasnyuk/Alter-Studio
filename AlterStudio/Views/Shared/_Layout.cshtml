@@ -28,18 +28,26 @@
                     <li>@Html.ActionLink("Главная", "Index", "Home")</li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span class="glyphicon glyphicon-list" aria-hidden="true"></span>
                             Данные и справочники
-                            <span class="caret"></span>
+                            <span class="caret "></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Услуги", "Index", "Services")</li>
+                            <li>
+                                <a href="@Url.Action("Index","Services")">
+                                    Услуги
+                                    <span class="" aria-hidden="true"></span>
+                                </a>
+                            </li>
                             <li>@Html.ActionLink("Должности", "List", "Positions")</li>
                             <li>@Html.ActionLink("Города", "Index", "Cities")</li>
                             <li>@Html.ActionLink("Кураторы", "List", "Curator")</li>
+                            <li>@Html.ActionLink("Заказы", "List", "Orders")</li>
                         </ul>
                     </li>
                     <li class="dropdown">
                         <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                            <span class="glyphicon glyphicon-pie-chart"></span>
                             Анализ данных
                             <span class="caret"></span>
                         </a>

@@ -11,7 +11,7 @@ namespace AlterStudio.Controllers
     [Authorize]
     public class ReportsController : Controller
     {
-        readonly RemoteStudioEntities _db = new RemoteStudioEntities();
+        readonly LocalStudioEntities _db = new LocalStudioEntities();
         public ActionResult Main()
         {
             return View();

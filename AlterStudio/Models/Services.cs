@@ -1,13 +1,11 @@
-
+using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
 namespace AlterStudio.Models
 {
-    using System;
-    using System.Collections.Generic;
-    
     public class Services
-    {   
+    {
         [Required]
         public int ServiceId { get; set; }
         [Display(Name = "Название")]
@@ -19,7 +17,8 @@ namespace AlterStudio.Models
         public string Description { get; set; }
         [Display(Name = "Стоимость")]
         [Required(ErrorMessage = "Стоимость является обязательным!")]
-        public int Cost { get; set; }
+        [Range(0,99999, ErrorMessage = "Число должно быть в диапазоне 0 - 99999")]
+        public decimal Cost { get; set; }
         [Display(Name = "Примечание")]
         public string Note { get; set; }
         public virtual ICollection<OrderDetails> OrderDetails { get; set; }
