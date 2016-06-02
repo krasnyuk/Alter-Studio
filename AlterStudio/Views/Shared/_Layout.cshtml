@@ -33,15 +33,12 @@
                             <span class="caret "></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>
-                                <a href="@Url.Action("Index","Services")">
-                                    Услуги
-                                    <span class="" aria-hidden="true"></span>
-                                </a>
-                            </li>
+                            <li>@Html.ActionLink("Услуги", "Index", "Services")</li>
                             <li>@Html.ActionLink("Должности", "List", "Positions")</li>
-                            <li>@Html.ActionLink("Города", "Index", "Cities")</li>
+                            <li>@Html.ActionLink("Клиенты", "List", "Client")</li>
                             <li>@Html.ActionLink("Кураторы", "List", "Curator")</li>
+                            <li>@Html.ActionLink("Сотрудники", "List", "Employee")</li>
+                            <li>@Html.ActionLink("Города", "Index", "Cities")</li>
                             <li>@Html.ActionLink("Заказы", "List", "Orders")</li>
                         </ul>
                     </li>
@@ -52,8 +49,10 @@
                             <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu">
-                            <li>@Html.ActionLink("Услуги", "Graphics", "Analysis")</li>
-                            
+                            <li>@Html.ActionLink("Основные услуги", "Graphics", "Analysis")</li>
+                            <li>@Html.ActionLink("Кураторы", "CuratorsOrdersCount", "Analysis")</li>
+                            <li>@Html.ActionLink("Клиенты", "SalesByTime", "Analysis")</li>
+                            <li>@Html.ActionLink("Сотрудники", "EmployeesOrdersCount", "Analysis")</li>
                         </ul>
                     </li>
                     <li class="dropdown">

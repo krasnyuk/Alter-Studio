@@ -1,11 +1,11 @@
-﻿@model AlterStudio.Models.Cities
+﻿@model AlterStudio.Models.Employees
 @{
     ViewBag.Title = "Удаление";
 }
 
 <div class="panel panel-danger">
     <div class="panel-heading ">
-        <h3>Вы уверены, что хотите удалить этот город?</h3>
+        <h3>Вы уверены, что хотите удалить этого сотрудника?</h3>
     </div>
     <div class="panel-body">
         <div class="text-danger">
@@ -13,38 +13,37 @@
         </div>
         <dl class="dl-horizontal">
             <dt>
-                @Html.DisplayNameFor(model => model.Title)
+                @Html.DisplayNameFor(model => model.FirstName)
             </dt>
-
             <dd>
-                @Html.DisplayFor(model => model.Title)
+                @Html.DisplayFor(model => model.FirstName)
             </dd>
-
-           
             <dt>
-                @Html.DisplayNameFor(model => model.Country)
+                @Html.DisplayNameFor(model => model.LastName)
             </dt>
-
             <dd>
-                @Html.DisplayFor(model => model.Country)
+                @Html.DisplayFor(model => model.LastName)
             </dd>
 
+            <dt>
+                @Html.DisplayNameFor(model => model.Telephone)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Telephone)
+            </dd>
         </dl>
     </div>
     <div class="panel-footer">
         @using (Html.BeginForm())
         {
             @Html.AntiForgeryToken()
-
             <div class="form-actions no-color">
                 <input type="submit" value="Удалить" class="btn btn-danger" />
-                @Html.ActionLink("Отмена", "Index", null, new
-           {
-               @class = "btn btn-warning"
-           })
+                @Html.ActionLink("Отмена", "List", null, new { @class = "btn btn-warning" })
             </div>
         }
     </div>
 
 </div>
+
 

@@ -90,7 +90,14 @@ namespace AlterStudio.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Services services = _db.Services.Find(id);
+            Services services = _db.Services
+                .Include("OrderDetails")
+                .FirstOrDefault(x=>x.ServiceId == id);
+            if (services.OrderDetails.Count!=0)
+            {
+                ModelState.AddModelError("Existing", "Услуга используется в таблицах! Измените данные, перед тем как удалить.");
+                return View("Delete", services);
+            }
             _db.Services.Remove(services);
             _db.SaveChanges();
             return RedirectToAction("Index");

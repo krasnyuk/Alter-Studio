@@ -89,7 +89,14 @@ namespace AlterStudio.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Positions positions = _db.Positions.Find(id);
+            Positions positions = _db.Positions
+                .Include("Employees")
+                .FirstOrDefault(x=>x.PositionId == id);
+            if (positions.Employees.Count != 0 )
+            {
+                ModelState.AddModelError("Existing", "Должность используется в таблицах! Измените данные, перед тем как удалить данный город.");
+                return View("Delete", positions);
+            }
             _db.Positions.Remove(positions);
             _db.SaveChanges();
             return RedirectToAction("List");

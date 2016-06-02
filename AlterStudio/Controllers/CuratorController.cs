@@ -133,7 +133,12 @@ namespace AlterStudio.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Curators curators = _db.Curators.Find(id);
+            Curators curators = _db.Curators.Include("Orders").FirstOrDefault(x=>x.CuratorId == id);
+            if (curators.Orders.Count!=0) // куратор есть в заказах
+            {
+                ModelState.AddModelError("Existing", "Куратор используется в заказах! Измените заказы, перед тем как удалить данного куратора.");
+                return View("Delete", curators);
+            }
             _db.Curators.Remove(curators);
             _db.SaveChanges();
             return RedirectToAction("List");

@@ -88,7 +88,16 @@ namespace AlterStudio.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Cities city = _db.Cities.Find(id);
+            Cities city = _db.Cities
+                .Include("Clients")
+                .Include("Curators")
+                .Include("Employees")
+                .FirstOrDefault(x=>x.CityId==id);
+            if (city.Clients.Count != 0 || city.Curators.Count != 0 || city.Employees.Count != 0) 
+            {
+                ModelState.AddModelError("Existing", "Город используется в таблицах! Измените данные, перед тем как удалить данный город.");
+                return View("Delete", city);
+            }
             _db.Cities.Remove(city);
             _db.SaveChanges();
             return RedirectToAction("Index");

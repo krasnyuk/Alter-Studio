@@ -8,6 +8,9 @@
         <h3>Вы уверены, что хотите удалить эту должность?</h3>
     </div>
     <div class="panel-body">
+        <div class="text-danger">
+            @Html.ValidationSummary(false, "", new { @class = "text-danger" })
+        </div>
         <dl class="dl-horizontal">
             <dt>
                 @Html.DisplayNameFor(model => model.Title)

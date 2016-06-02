@@ -130,7 +130,12 @@ namespace AlterStudio.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Clients clients = _db.Clients.Find(id);
+            Clients clients = _db.Clients.Include("Orders").FirstOrDefault(x=>x.ClientId == id);
+            if (clients.Orders.Count != 0)
+            {
+                ModelState.AddModelError("Existing", "Клиент используется в таблицах! Измените данные, перед тем как удалить данного клиента.");
+                return View("Delete", clients);
+            }
             _db.Clients.Remove(clients);
             _db.SaveChanges();
             return RedirectToAction("List");

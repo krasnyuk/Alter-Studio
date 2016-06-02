@@ -5,12 +5,8 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AlterStudio.Models
 {
-   
-    
     public partial class Employees
     {
-
-    
         [Required]
         public int EmployeeId { get; set; }
 

@@ -194,6 +194,7 @@
     <Compile Include="Controllers\CitiesController.cs" />
     <Compile Include="Controllers\ClientController.cs" />
     <Compile Include="Controllers\CuratorController.cs" />
+    <Compile Include="Controllers\EmployeeController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\OrdersController.cs" />
@@ -218,6 +219,7 @@
     <Compile Include="Models\Employees.cs">
       <DependentUpon>LocalStudioEntities.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\EmployeeViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\LocalStudioEntities.Context.cs">
       <AutoGen>True</AutoGen>
@@ -434,6 +436,13 @@
     <Content Include="Views\Orders\Details.cshtml" />
     <Content Include="Views\Orders\AddServiceToOrder.cshtml" />
     <Content Include="Views\Orders\EditDetails.cshtml" />
+    <Content Include="Views\Employee\List.cshtml" />
+    <Content Include="Views\Employee\Create.cshtml" />
+    <Content Include="Views\Employee\Edit.cshtml" />
+    <Content Include="Views\Employee\Delete.cshtml" />
+    <Content Include="Views\Analysis\SalesByTime.cshtml" />
+    <Content Include="Views\Analysis\CuratorsOrdersCount.cshtml" />
+    <Content Include="Views\Analysis\EmployeesOrdersCount.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

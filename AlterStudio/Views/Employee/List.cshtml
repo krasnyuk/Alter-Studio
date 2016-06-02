@@ -1,0 +1,105 @@
+﻿@model IEnumerable<AlterStudio.Models.Employees>
+
+@{
+    ViewBag.Title = "Сотрудники";
+}
+
+<h2>Список сотрудников</h2>
+<p>
+    <button type="button" class="btn btn-info btn-md"
+            data-toggle="modal" data-target="#myModal">
+        Добавить сотрудника
+        <span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span>
+    </button>
+</p>
+
+<table class="table table-hover table-bordered">
+    <thead>
+        <tr>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.LastName)
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayNameFor(model => model.FirstName)
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayName("Должность")
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(model => model.Telephone)
+            </th>
+            <th class="col-md-1">
+                @Html.DisplayName("Город")
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(model => model.Site)
+            </th>
+            <th class="col-md-2">
+                @Html.DisplayNameFor(model => model.Email)
+            </th>
+            <th class="col-md-3"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Positions.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Telephone)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Cities.Title)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Site)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    @Html.ActionLink("Редактировать", "Edit", new
+               {
+                   employeeId = item.EmployeeId
+               }, new
+               {
+                   @class = "btn-sm btn-warning"
+               })
+                    @Html.ActionLink("Удалить", "Delete", new
+               {
+                   employeeId = item.EmployeeId
+               }, new
+               {
+                   @class = "btn-sm btn-danger"
+               })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Новый сотрудник</h4>
+            </div>
+            <div class="modal-body">
+                @Html.Action("NewEmployee")
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Закрыть</button>
+            </div>
+        </div>
+    </div>
+</div>
+
